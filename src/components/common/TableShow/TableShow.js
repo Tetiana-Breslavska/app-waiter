@@ -1,14 +1,19 @@
-// import styles from './Home.module.scss';
-import Button from 'react-bootstrap/Button';
+import styles from './TableShow.module.scss';
+import Nav from 'react-bootstrap/Nav';
 
 const TableShow = props => {
     return (
-        <div>
-             <h2> Table </h2>
-             <p>Status:  </p>
-            <Button variant="primary">Show more</Button>{' '}
-
-        </div>
+        <li className={styles.tableItem}>
+            <div className={styles.tableDescr}>
+                <h2>Table {props.id}</h2>
+                <p>Status: {props.status} </p>
+            </div>
+            <Nav variant="pills" defaultActiveKey="/table/:id"> 
+                <Nav.Item>
+                    <Nav.Link href="/table/:id">Show more</Nav.Link>
+                </Nav.Item>
+            </Nav>
+        </li>
     );
 };
 

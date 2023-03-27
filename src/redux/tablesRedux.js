@@ -1,6 +1,7 @@
 
 
 //selectors
+export const getAllTables = ({tables}) => tables;
 
 // action names
 const createActionName = actionName => `app/tables/${actionName}`;

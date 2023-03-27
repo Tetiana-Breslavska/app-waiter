@@ -1,0 +1,29 @@
+.tableItem{
+    display: flex;
+    justify-content:space-between; 
+    margin: 15px;
+
+    .tableDescr {
+        display: flex;
+
+        h2, p{
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin-left: 30px;
+            margin-top: 8px;
+            font-weight: 700;
+        }
+    }
+    
+
+
+
+
+
+
+
+    
+}
