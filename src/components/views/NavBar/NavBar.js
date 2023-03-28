@@ -11,13 +11,15 @@ const NavBar = props => {
         <Navbar className={styles.navbar} bg="primary" variant="dark" >
             <Container className={styles.navcontainer} >
                 <Navbar.Brand>Waiter.app</Navbar.Brand>
-                <Nav className="me-auto">
-                    <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                <Nav className= "me-auto text-end">
+                    <Nav.Link className={styles.link} as={NavLink} to="/">Home</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
 
     );
 };
+
+
 
 export default NavBar;
