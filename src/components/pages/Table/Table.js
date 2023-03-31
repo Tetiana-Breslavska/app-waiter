@@ -7,7 +7,8 @@ import { useParams } from "react-router";
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
+import Bill from '../../features/Bill/Bill';
+import People from '../../features/People/People';
 
 
 const Table = props => {
@@ -37,31 +38,9 @@ const Table = props => {
                                 <option>Cleaning</option>
                             </Form.Select> 
                         </div>
-                        <div className={styles.people}>
-                            <span>People:</span>
-                            <Form>
-                                <Row>
-                                    <Col xs={2}>
-                                        <Form.Control value={table.peopleAmount} />
-                                    </Col>
-                                    /
-                                    <Col xs={2}>
-                                        <Form.Control value={table.maxPeopleAmount}/>
-                                    </Col>
-                                </Row>
-                            </Form>
-                        </div>
-                        <div className={styles.bill}>
-                            <span>Bill:</span>
-                            <span>$</span>
-                            <Form>
-                                <Row>
-                                    <Col xs={4}>
-                                        <Form.Control value={table.bill} />
-                                    </Col>
-                                </Row>
-                            </Form>
-                        </div>
+                        <People peopleAmount = {table.peopleAmount} maxPeopleAmount={table.maxPeopleAmount}/>
+                      
+                        <Bill sum = {table.bill} status = {table.status}/>
 
                         <Button variant="primary">Update</Button>
 
@@ -75,4 +54,3 @@ const Table = props => {
 
 export default Table;
 
-// 
