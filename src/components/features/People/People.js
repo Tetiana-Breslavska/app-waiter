@@ -55,7 +55,7 @@ const People = props => {
             
                 <Row>
                     <Col xs={2}>
-                        <Form.Control 
+                        <Form.Control
                             type="number" 
                             name="amount"
                             value= {statusFree ? 0:parseInt(visitorsAmount)  }

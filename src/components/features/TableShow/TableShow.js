@@ -11,7 +11,7 @@ const TableShow = props => {
             <div className={styles.tableItem}>
                 <div className={styles.tableDescr}>
                     <h2>Table {props.id}</h2>
-                    <p>Status: {props.status} </p>
+                    <p>Status: <span>{props.status}</span> </p>
                 </div>
                 <Nav variant="pills" defaultActiveKey={`table/${props.id}`}> 
                     <Nav.Item>

@@ -37,7 +37,7 @@ const Table = props => {
         setFormStatus(event.target.value);
     }
 
-     console.log (formStatus); 
+    console.log (formStatus); 
 
     useEffect(()=>{
         dispatch(setDataForServer({status: formStatus}));
@@ -48,11 +48,12 @@ const Table = props => {
         },[]);
 
 
-  console.log (dataForServer);
+    console.log (dataForServer);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(tableRequest(dataForServer));
+        return <Navigate to="/" />;
 
     };
 
@@ -77,7 +78,7 @@ const Table = props => {
                         <Form onSubmit={handleSubmit}>
                             <div className={styles.status}>
                                 <span>Status:</span>
-                                <select value = {statusSelect (formStatus, table.status)} onChange={handleChange}>
+                                <select className={styles.select} value = {statusSelect (formStatus, table.status)} onChange={handleChange}>
                                     <option value={'Free'}>Free</option>
                                     <option value={'Reserved'}>Reserved</option>
                                     <option value={'Busy'}>Busy</option>

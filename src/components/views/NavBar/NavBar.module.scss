@@ -1,7 +1,7 @@
 .navbar{
 
     border-radius: 5px;
-    // justify-content:space-between;
+    justify-content:space-between;
     padding: 10, 0, 10, 0;
     // text-align:end;
     
@@ -9,14 +9,17 @@
     .nav_container{
         justify-content:space-between;
 
-        // text-align:end;
+
+        
     }
 
-    // .link{
-    //     margin-left: 400px;
+    .link{
+        // text-align:end; 
+        // justify-content:space-between;
+        margin-left: 400px;
 
 
-    // }
+    }
     
 
 }
