@@ -29,9 +29,9 @@ export const tableRequest = (data) => {
       },
       body: JSON.stringify({
         status: data.status,
-        // peopleAmount: table.peopleAmount,
-        // maxPeopleAmount: table.maxPeopleAmount,
-        // bill: table.bill,
+        peopleAmount: data.peopleAmount,
+        maxPeopleAmount: data.maxPeopleAmount,
+        bill: data.bill,
       }),
     };
     console.log(JSON.stringify);

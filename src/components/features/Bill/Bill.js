@@ -2,19 +2,23 @@ import styles from './Bill.module.scss';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
-// import { setDataForServer } from '../../../redux/dataForServerReduser';
+import { useDispatch } from 'react-redux';
+import { setDataForServer } from '../../../redux/dataForServerReduser';
 
 
 const Bill = props => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [billSum, setbillSum] = useState(props.sum);
     const handleChange = (event) => {
         setbillSum(event.target.value);
-        // dispatch(setDataForServer({bill: billSum}));
     }
+
+    useEffect(()=>{
+        dispatch(setDataForServer({bill: billSum}));
+        },[billSum]);
+
     if (props.status === 'Busy'){
         return (
             <div>

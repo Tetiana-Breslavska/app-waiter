@@ -2,11 +2,14 @@ import styles from './People.module.scss';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { setDataForServer } from '../../../redux/dataForServerReduser';
 
 
 const People = props => {
+    const dispatch = useDispatch();
     const [visitorsAmount, setVisitorsAmount] = useState(props.peopleAmount);
     const [visitorsMax, setVisitorsMax] = useState(props.maxPeopleAmount);
     let statusFree;
@@ -37,6 +40,14 @@ const People = props => {
             }   
         }
     }
+
+    useEffect(()=>{
+        dispatch(setDataForServer({peopleAmount: visitorsAmount}));
+        },[visitorsAmount]);
+
+    useEffect(()=>{
+        dispatch(setDataForServer({maxPeopleAmount: visitorsMax}));
+        },[visitorsMax]);
 
     return (
         <div className={styles.people}>
