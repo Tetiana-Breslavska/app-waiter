@@ -14,7 +14,7 @@ export const updateTables = payload => ({type: UPDATE_TABLES, payload});
 
 export const fetchTables = () => {
   return (dispatch) => {
-    fetch (API_URL)
+    fetch (`${API_URL}/tables/`)
       .then (res => res.json())
       .then (tables => dispatch(updateTables(tables)));
   }
@@ -35,7 +35,7 @@ export const tableRequest = (data) => {
       }),
     };
     console.log(JSON.stringify);
-    fetch(`${API_URL}/${data.id}`, options)
+    fetch(`${API_URL}/tables/${data.id}`, options)
     
   }
 }

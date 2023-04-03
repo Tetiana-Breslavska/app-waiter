@@ -3,9 +3,9 @@
     {
       "id": 1,
       "status": "Free",
-      "peopleAmount": 1,
+      "peopleAmount": 5,
       "maxPeopleAmount": 6,
-      "bill": 34
+      "bill": 0
     },
     {
       "id": 2,
