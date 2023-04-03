@@ -9,10 +9,10 @@
     },
     {
       "id": 2,
-      "status": "Free",
-      "peopleAmount": 0,
-      "maxPeopleAmount": 3,
-      "bill": 0
+      "status": "Busy",
+      "peopleAmount": "5",
+      "maxPeopleAmount": "9",
+      "bill": "200"
     },
     {
       "id": 3,

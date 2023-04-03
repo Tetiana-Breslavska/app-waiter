@@ -40,8 +40,13 @@ const Table = props => {
      console.log (formStatus); 
 
     useEffect(()=>{
-    dispatch(setDataForServer({status: formStatus}));
-    },[formStatus]);
+        dispatch(setDataForServer({status: formStatus}));
+        },[formStatus]);
+
+    useEffect(()=>{
+        dispatch(setDataForServer({id: tableActiveId}));
+        },[]);
+
 
   console.log (dataForServer);
 

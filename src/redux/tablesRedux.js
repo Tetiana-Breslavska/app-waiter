@@ -35,10 +35,14 @@ export const tableRequest = (data) => {
       }),
     };
     console.log(JSON.stringify);
-    fetch('http://localhost:3131/tables/1', options)
+    fetch(`http://localhost:3131/tables/${data.id}`, options)
       // .then(()=>...)
   }
 }
+
+
+
+
 
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
