@@ -13,9 +13,9 @@ const TableShow = props => {
                     <h2>Table {props.id}</h2>
                     <p>Status: <span>{props.status}</span> </p>
                 </div>
-                <Nav variant="pills" defaultActiveKey={`table/${props.id}`}> 
+                <Nav variant="pills" defaultActiveKey={`/table/${props.id}`}> 
                     <Nav.Item>
-                        <Nav.Link href = {`table/${props.id}`}> Show more</Nav.Link>
+                        <Nav.Link href = {`/table/${props.id}`}> Show more</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </div>
