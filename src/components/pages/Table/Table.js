@@ -6,21 +6,21 @@ import SpinnerLine from '../../common/SpinnerLine/SpinnerLine';
 import { useParams } from "react-router";
 import Bill from '../../features/Bill/Bill';
 import People from '../../features/People/People';
-import { useState  } from 'react';
+import { useState, useEffect  } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Navigate } from 'react-router-dom';
 import { getAllTables } from '../../../redux/tablesRedux';
-// import { useDispatch } from 'react-redux';
-// import { tableRequest } from '../../../redux/tablesRedux';
-// import { setDataForServer } from '../../../redux/dataForServerReduser';
+import { useDispatch } from 'react-redux';
+import { tableRequest } from '../../../redux/tablesRedux';
+import { setDataForServer } from '../../../redux/dataForServerReduser';
 
 
 const Table = props => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const params = useParams();
     const tableActiveId = params.id;
     const tables = useSelector(state => getAllTables(state));
-    // const dataForServer = useSelector (state => state.dataForServer);
+    const dataForServer = useSelector (state => state.dataForServer);
 
     
     const tableActiveShow = useSelector(state => getOneTable(state, parseInt(tableActiveId)));
@@ -37,16 +37,17 @@ const Table = props => {
         setFormStatus(event.target.value);
     }
 
-     //console.log (formStatus); 
+     console.log (formStatus); 
 
-//     useEffect(()=>{
-//     dispatch(setDataForServer({status: formStatus}));
-//     },[formStatus]);
-//   console.log (dataForServer);
+    useEffect(()=>{
+    dispatch(setDataForServer({status: formStatus}));
+    },[formStatus]);
+
+  console.log (dataForServer);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // dispatch(tableRequest(dataForServer));
+        dispatch(tableRequest(dataForServer));
 
     };
 

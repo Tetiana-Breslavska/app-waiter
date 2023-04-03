@@ -20,7 +20,7 @@ export const fetchTables = () => {
   }
 };
 
-export const tableRequest = (argStatus ) => {
+export const tableRequest = (data) => {
   return (dispatch) => {
     const options = {
       method:'PATCH',
@@ -28,7 +28,7 @@ export const tableRequest = (argStatus ) => {
         'Content-Type':'application/json'
       },
       body: JSON.stringify({
-        status: argStatus,
+        status: data.status,
         // peopleAmount: table.peopleAmount,
         // maxPeopleAmount: table.maxPeopleAmount,
         // bill: table.bill,
