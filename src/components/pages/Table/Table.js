@@ -10,21 +10,20 @@ import { useState  } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Navigate } from 'react-router-dom';
 import { getAllTables } from '../../../redux/tablesRedux';
+import { useDispatch } from 'react-redux';
+import { tableRequest } from '../../../redux/tablesRedux';
 
 
 const Table = props => {
+    const dispatch = useDispatch();
     const params = useParams();
     const tableActiveId = params.id;
-    console.log (tableActiveId);
     const tables = useSelector(state => getAllTables(state));
 
     
     const tableActiveShow = useSelector(state => getOneTable(state, parseInt(tableActiveId)));
-    console.log (tableActiveShow);
-  
+    // console.log (tableActiveShow);
     const [formStatus, setFormStatus] = useState('not ready');
-
-    console.log (formStatus);
 
     const statusSelect = (a, b ) => {
         const result = a === 'not ready' ? b : a;
@@ -36,9 +35,10 @@ const Table = props => {
         setFormStatus(event.target.value)
     }
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    // };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(tableRequest(formStatus));
+    };
 
     if (tables.length !== 0){
         const result = tables.find(table=> table.id === parseInt(tableActiveId));
@@ -58,24 +58,21 @@ const Table = props => {
             {tableActiveShow.map(table => 
                     <div className={styles.table_active} key={table.id}{...table}>
                         <h1 className={styles.title}>Table {table.id}</h1>
-                        {/* <form onSubmit={handleSubmit}> */}
+                        <Form onSubmit={handleSubmit}>
                             <div className={styles.status}>
                                 <span>Status:</span>
-                                
-                                <Form.Select value = {statusSelect (formStatus, table.status)} onChange={handleChange}>
+                                <select value = {statusSelect (formStatus, table.status)} onChange={handleChange}>
                                     <option value={'Free'}>Free</option>
                                     <option value={'Reserved'}>Reserved</option>
                                     <option value={'Busy'}>Busy</option>
                                     <option value={'Cleaning'}>Cleaning</option>
-                                </Form.Select> 
+                                </select>
+                                
                             </div>
-
                             <People peopleAmount = {table.peopleAmount} maxPeopleAmount={table.maxPeopleAmount} status = {statusSelect (formStatus, table.status)}/>
-                            
                             <Bill sum = {table.bill} status = {statusSelect (formStatus, table.status)}/>
-
                             <Button className={styles.button}  variant="primary" type ="submit">Update</Button>
-                        {/* </form> */}
+                        </Form>
                     </div> 
                     
                 )}

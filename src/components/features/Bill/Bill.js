@@ -16,7 +16,7 @@ const Bill = props => {
                 <div className={styles.bill}>
                     <span>Bill:</span>
                     <span>$</span>
-                    <Form>
+                    
                         <Row>
                             <Col xs={4}>
                                 <Form.Control 
@@ -27,7 +27,7 @@ const Bill = props => {
                                 />
                             </Col>
                         </Row>
-                    </Form>
+                    
                 </div>
             </div>
         );

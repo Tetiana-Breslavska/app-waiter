@@ -41,7 +41,7 @@ const People = props => {
     return (
         <div className={styles.people}>
             <span>People:</span>
-            <Form>
+            
                 <Row>
                     <Col xs={2}>
                         <Form.Control 
@@ -61,7 +61,7 @@ const People = props => {
                         />                        
                     </Col>
                 </Row>
-            </Form>
+            
         </div>
     );
 

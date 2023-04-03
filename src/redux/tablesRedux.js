@@ -20,25 +20,25 @@ export const fetchTables = () => {
   }
 };
 
-// export const tableRequest = (status ) => {
-//   return (dispatch) => {
-//     const options = {
-//       method:'PATCH',
-//       headers: {
-//         'Content-Type':'application/json'
-//       },
-//       body: JSON.stringify({
-//         status: status,
-//         // peopleAmount: table.peopleAmount,
-//         // maxPeopleAmount: table.maxPeopleAmount,
-//         // bill: table.bill,
-//       }),
-//     };
-//     console.log(JSON.stringify);
-//     fetch('http://localhost:3131/api/tables/1', options)
-//       // .then(()=>...)
-//   }
-// }
+export const tableRequest = (argStatus ) => {
+  return (dispatch) => {
+    const options = {
+      method:'PATCH',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+        status: argStatus,
+        // peopleAmount: table.peopleAmount,
+        // maxPeopleAmount: table.maxPeopleAmount,
+        // bill: table.bill,
+      }),
+    };
+    console.log(JSON.stringify);
+    fetch('http://localhost:3131/tables/1', options)
+      // .then(()=>...)
+  }
+}
 
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
