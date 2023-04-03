@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { setDataForServer } from '../../../redux/dataForServerReduser';
 
-
 const Bill = props => {
     const dispatch = useDispatch();
     const [billSum, setbillSum] = useState(props.sum);
