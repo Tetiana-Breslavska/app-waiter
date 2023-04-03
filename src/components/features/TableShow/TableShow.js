@@ -1,10 +1,10 @@
 import styles from './TableShow.module.scss';
 import Nav from 'react-bootstrap/Nav';
 import ListGroup from 'react-bootstrap/ListGroup';
+import PropTypes from 'prop-types';
 
 
 const TableShow = props => {
-
 
     return (
         <ListGroup.Item >
@@ -23,7 +23,10 @@ const TableShow = props => {
     );
 };
 
+TableShow.propTypes ={
+    table: PropTypes.object.isRequired,
 
+};
 
 
 export default TableShow;

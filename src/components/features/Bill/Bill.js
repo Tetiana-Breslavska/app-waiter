@@ -1,19 +1,16 @@
 import styles from './Bill.module.scss';
-// import { useSelector } from 'react-redux';
-// import { getOneTable } from '../../../redux/tablesRedux'
-// import Button from 'react-bootstrap/Button';
-// import SpinnerLine from '../../common/SpinnerLine/SpinnerLine';
-// import { useParams } from "react-router";
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
-
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Bill = props => {
-
+    const [billSum, setbillSum] = useState(props.sum);
+    const handleChange = (event) => {
+        setbillSum(event.target.value)
+    }
     if (props.status === 'Busy'){
-        
         return (
             <div>
                 <div className={styles.bill}>
@@ -22,7 +19,12 @@ const Bill = props => {
                     <Form>
                         <Row>
                             <Col xs={4}>
-                                <Form.Control value={props.sum} />
+                                <Form.Control 
+                                    type="number" 
+                                    name="bill"
+                                    value={billSum}
+                                    onChange={handleChange} 
+                                />
                             </Col>
                         </Row>
                     </Form>
@@ -31,6 +33,11 @@ const Bill = props => {
         );
     }
 }; 
+
+Bill.propTypes ={
+    sum: PropTypes.number.isRequired,
+    status:  PropTypes.string.isRequired,
+};
 
 export default Bill;
 

@@ -2,8 +2,8 @@ import styles from './People.module.scss';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 
 const People = props => {
@@ -13,14 +13,12 @@ const People = props => {
     if(props.status === "Free" || props.status === "Cleaning"){
         statusFree=true;
     }
-
     
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         
         if (value >= 0 && value <= 10){
-            
             if(name ==="maxAmount"){
                 if(value  < visitorsAmount){
                     setVisitorsAmount(value);
@@ -29,9 +27,7 @@ const People = props => {
                     setVisitorsMax(value);
                 }
             }
-
             else {
-                
                 if(value  > visitorsMax){
                     setVisitorsAmount(visitorsMax);
                 }
@@ -41,34 +37,6 @@ const People = props => {
             }   
         }
     }
-
-
-
-
-
-    // const [visitors, setVisitors] = useState({amount:props.peopleAmount, maxAmount: props.maxPeopleAmount});
-    // console.log(visitors);
-    // const handleChange = (event) => {
-    //     const name = event.target.name;
-    //     const value = event.target.value;
-    //     console.log(visitors.maxAmount);
-    //     // 
-    //     if (value >= 0 && value <= 10){
-            
-    //         if(name ==="amount" && value  > visitors.maxAmount){
-    //             setVisitors(values => ({...values, [name]: visitors.maxAmount}))
-    //         }
-    //         else if(name === "maxAmount" && value  < visitors.amount){
-    //             // debugger
-    //             setVisitors(values => ({...values, [amount]: visitors.maxAmount}))
-    //         }
-
-    //         else{
-
-    //             setVisitors(values => ({...values, [name]: value}))}
-    //         }
-    //     }
-    
 
     return (
         <div className={styles.people}>
@@ -98,5 +66,11 @@ const People = props => {
     );
 
 }; 
+
+People.propTypes ={
+    peopleAmount: PropTypes.number.isRequired,
+    maxPeopleAmount:  PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
+};
 
 export default People;

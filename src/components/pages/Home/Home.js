@@ -6,11 +6,7 @@ import { getAllTables } from '../../../redux/tablesRedux';
 import SpinnerLine from '../../common/SpinnerLine/SpinnerLine';
 
 const Home = props => {
-
     const tables = useSelector(state => getAllTables(state));
-
-    console.log (tables);
-
 
     if (tables.length === 0){
         return (
