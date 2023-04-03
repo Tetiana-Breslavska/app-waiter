@@ -1,12 +1,14 @@
-import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
+import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 import initialState from './initialState';
 import thunk from 'redux-thunk';
 import tablesReducer from './tablesRedux';
+// import dataForServerReduser from './dataForServerReduser';
 
 
 
 const subreducers = {
     tables: tablesReducer,
+    // dataForServer: dataForServerReduser,
 
 }
 

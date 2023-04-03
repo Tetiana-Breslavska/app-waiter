@@ -4,11 +4,16 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+// import { useDispatch } from 'react-redux';
+// import { setDataForServer } from '../../../redux/dataForServerReduser';
+
 
 const Bill = props => {
+    // const dispatch = useDispatch();
     const [billSum, setbillSum] = useState(props.sum);
     const handleChange = (event) => {
-        setbillSum(event.target.value)
+        setbillSum(event.target.value);
+        // dispatch(setDataForServer({bill: billSum}));
     }
     if (props.status === 'Busy'){
         return (
@@ -35,7 +40,7 @@ const Bill = props => {
 }; 
 
 Bill.propTypes ={
-    sum: PropTypes.number.isRequired,
+    sum: PropTypes.string.isRequired,
     status:  PropTypes.string.isRequired,
 };
 

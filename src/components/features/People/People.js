@@ -68,8 +68,8 @@ const People = props => {
 }; 
 
 People.propTypes ={
-    peopleAmount: PropTypes.number.isRequired,
-    maxPeopleAmount:  PropTypes.number.isRequired,
+    peopleAmount: PropTypes.string.isRequired,
+    maxPeopleAmount:  PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
 };
 

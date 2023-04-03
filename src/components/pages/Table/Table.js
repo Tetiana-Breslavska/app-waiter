@@ -10,15 +10,17 @@ import { useState  } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Navigate } from 'react-router-dom';
 import { getAllTables } from '../../../redux/tablesRedux';
-import { useDispatch } from 'react-redux';
-import { tableRequest } from '../../../redux/tablesRedux';
+// import { useDispatch } from 'react-redux';
+// import { tableRequest } from '../../../redux/tablesRedux';
+// import { setDataForServer } from '../../../redux/dataForServerReduser';
 
 
 const Table = props => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const params = useParams();
     const tableActiveId = params.id;
     const tables = useSelector(state => getAllTables(state));
+    // const dataForServer = useSelector (state => state.dataForServer);
 
     
     const tableActiveShow = useSelector(state => getOneTable(state, parseInt(tableActiveId)));
@@ -32,12 +34,20 @@ const Table = props => {
     };
     
     const handleChange = (event) => {
-        setFormStatus(event.target.value)
+        setFormStatus(event.target.value);
     }
+
+     //console.log (formStatus); 
+
+//     useEffect(()=>{
+//     dispatch(setDataForServer({status: formStatus}));
+//     },[formStatus]);
+//   console.log (dataForServer);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(tableRequest(formStatus));
+        // dispatch(tableRequest(dataForServer));
+
     };
 
     if (tables.length !== 0){
