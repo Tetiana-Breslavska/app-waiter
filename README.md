@@ -1,4 +1,4 @@
-https://replit.com/@TetianaB/app-waiter
+https://app-waiter.tetianab.repl.co/
 
 
 
