@@ -42,11 +42,11 @@ const People = props => {
     }
 
     useEffect(()=>{
-        dispatch(setDataForServer({peopleAmount: visitorsAmount}));
+        dispatch(setDataForServer({peopleAmount: parseInt (visitorsAmount)}));
         },[visitorsAmount]);
 
     useEffect(()=>{
-        dispatch(setDataForServer({maxPeopleAmount: visitorsMax}));
+        dispatch(setDataForServer({maxPeopleAmount: parseInt(visitorsMax)}));
         },[visitorsMax]);
 
     return (
@@ -58,7 +58,7 @@ const People = props => {
                         <Form.Control 
                             type="number" 
                             name="amount"
-                            value= {statusFree ? 0: visitorsAmount }
+                            value= {statusFree ? 0:parseInt(visitorsAmount)  }
                             onChange={handleChange} 
                         />
                     </Col>
@@ -67,7 +67,7 @@ const People = props => {
                         <Form.Control 
                             type="number" 
                             name="maxAmount"
-                            value={visitorsMax} 
+                            value={parseInt(visitorsMax)} 
                             onChange={handleChange} 
                         />                        
                     </Col>
@@ -79,8 +79,8 @@ const People = props => {
 }; 
 
 People.propTypes ={
-    peopleAmount: PropTypes.string.isRequired,
-    maxPeopleAmount:  PropTypes.string.isRequired,
+    peopleAmount: PropTypes.number.isRequired,
+    maxPeopleAmount:  PropTypes.number.isRequired,
     status: PropTypes.string.isRequired,
 };
 

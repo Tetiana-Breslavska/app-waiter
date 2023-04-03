@@ -16,7 +16,7 @@ const Bill = props => {
     }
 
     useEffect(()=>{
-        dispatch(setDataForServer({bill: billSum}));
+        dispatch(setDataForServer({bill: parseInt (billSum)}));
         },[billSum]);
 
     if (props.status === 'Busy'){
@@ -31,7 +31,7 @@ const Bill = props => {
                                 <Form.Control 
                                     type="number" 
                                     name="bill"
-                                    value={billSum}
+                                    value={parseInt(billSum)}
                                     onChange={handleChange} 
                                 />
                             </Col>
@@ -44,7 +44,7 @@ const Bill = props => {
 }; 
 
 Bill.propTypes ={
-    sum: PropTypes.string.isRequired,
+    sum: PropTypes.number.isRequired,
     status:  PropTypes.string.isRequired,
 };
 
