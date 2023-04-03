@@ -17,11 +17,22 @@
 
             span{
             font-weight: 400;
+            }
         }
-        }
-
-       
+        
     }
-    
+    .button{
+            border-radius: 5px;
+            height: 30px;
+            width: 100px;
+            color: white;
+            background-color:#0d6efd;
+            text-align: center;
+
+            .link{
+                color: white;
+                text-decoration: none;
+            }
+        }
 
 }
